@@ -11,6 +11,8 @@ spec:
         apiVersion: pkg.crossplane.io/v1alpha1
         kind: ControllerConfig
       patches:
+        - policy:
+            xyz
         - fromFieldPath: spec.parameters.args
           toFieldPath: spec.args
         - fromFieldPath: spec.parameters.replicas

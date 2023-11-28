@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  up-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install UP CLI
+        run: |
+          curl -sL "https://cli.upbound.io" | sh
+          sudo mv up /usr/local/bin
+
+      - name: Check out current commit
+        uses: actions/checkout@v4
+
+      - name: xpkg build
+        run: |
+          ls -ali
+          up xpkg build --ignore=".github/**/*.yaml"
