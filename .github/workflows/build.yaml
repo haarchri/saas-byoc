@@ -14,6 +14,9 @@ jobs:
           curl -sL "https://cli.upbound.io" | sh
           sudo mv up /usr/local/bin
 
+      - name: Check out current commit
+        uses: actions/checkout@v4
+
       - name: xpkg build
         run: |
           ls -ali
